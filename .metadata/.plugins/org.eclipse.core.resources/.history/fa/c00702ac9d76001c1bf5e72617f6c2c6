@@ -1,0 +1,44 @@
+package org.tamil;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class Mini_Project {
+
+	public static void main(String[] args) throws InterruptedException {
+		
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\tamil\\eclipse-workspace\\Selenium\\Driver\\chromedriver.exe");
+		
+		WebDriver driver = new ChromeDriver();
+		
+		driver.get("http://automationpractice.com/index.php");
+	
+		Thread.sleep(2000);
+		
+		Actions a = new Actions(driver);
+		
+		WebElement woman = driver.findElement(By.xpath("//a[@title='Women']"));
+		a.moveToElement(woman).build().perform();
+		
+		WebElement casual = driver.findElement(By.xpath("(//a[@title='Casual Dresses'])[1]"));
+		a.moveToElement(casual).build().perform();
+		a.click(casual).build().perform();
+		
+		WebElement add = driver.findElement(By.xpath("//span[text()='Add to cart']"));
+		a.moveToElement(add).build().perform();
+		a.click(add).build().perform();
+		
+		Thread.sleep(2000);
+		WebElement ptc = driver.findElement(By.xpath("//span[contains(text(),'Proceed to checkout')]"));
+		a.moveToElement(ptc).build().perform();
+		a.click(ptc).build().perform();
+	
+		WebElement ptc1 = driver.findElement(By.xpath("(//span[contains(text(),'Proceed to checkout')])[2]"));
+		a.moveToElement(ptc1).build().perform();
+		a.click(ptc1).build().perform();
+	
+	}
+}

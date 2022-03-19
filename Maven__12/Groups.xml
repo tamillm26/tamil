@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test thread-count="5" name="Test">
+   <groups>
+      <define name="food">
+        <include name ="vegitables"></include>
+        <include name="fruits"></include>
+      </define>
+        <define name="mobile">
+          <include name="mobile"></include>
+        </define>
+       <run>
+         <exclude name="mobile"></exclude>
+       </run>
+   </groups>
+    <classes>
+      <class name="com.testng.features.Grouping_Concept"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
